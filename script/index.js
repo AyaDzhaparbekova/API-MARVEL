@@ -22,7 +22,9 @@ document.getElementById('quizForm').addEventListener('submit', function (e) {
 
   const ts = Date.now().toString();
   const hash = md5(ts + privateKey + publicKey);
-  const url = `https://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${publicKey}&hash=${hash}`;
+  const url = `https://gateway.marvel.com/v1/public/characters?name=${encodeURIComponent(
+    mostCommon
+  )}&ts=${ts}&apikey=${publicKey}&hash=${hash}`;
 
   fetch(url)
     .then(res => res.json())

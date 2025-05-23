@@ -1,4 +1,4 @@
-console.log('JS is working');
+console.log('fetching');
 
 const publicKey = 'cc6564473569f94ef5db696237760823';
 const privateKey = '7e7cd5bcbf99552fed287688b857daa7ad800045';
@@ -22,9 +22,7 @@ document.getElementById('quizForm').addEventListener('submit', function (e) {
 
   const ts = Date.now().toString();
   const hash = md5(ts + privateKey + publicKey);
-  const url = `https://gateway.marvel.com/v1/public/characters?name=${encodeURIComponent(
-    mostCommon
-  )}&ts=${ts}&apikey=${publicKey}&hash=${hash}`;
+  const url = `https://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${publicKey}&hash=${hash}`;
 
   fetch(url)
     .then(res => res.json())

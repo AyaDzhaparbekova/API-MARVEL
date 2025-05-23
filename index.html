@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Which Marvel Hero Are You?</title>
+    <link rel="stylesheet" href="./styles/index.css" />
+  </head>
+  <body>
+    <h1>Welcome to the Marvel's World!</h1>
+    <h2>Discover Your Inner Superhero!</h2>
+    <h3>
+      Ready to fing out which Marvel superhero matches your personality? Take my
+      fun quiz and uncover the hero hiding inside you. Let's go!
+    </h3>
+    <div class="quiz-container">
+      <form id="quizForm">
+        <div class="question">
+          <p>How do you make a decisions?</p>
+          <label
+            ><input type="radio" name="q1" value="Iron Man" />With logic</label
+          >
+          <label
+            ><input type="radio" name="q1" value="Captain America" />With
+            conscience</label
+          >
+          <label
+            ><input type="radio" name="q1" value="Hulk" />With emotions</label
+          >
+        </div>
+        <div class="question">
+          <p>What do you value most?</p>
+          <label
+            ><input type="radio" name="q2" value="Spider Man" />Family</label
+          >
+          <label
+            ><input type="radio" name="q2" value="Black Widow" />Freedom</label
+          >
+          <label
+            ><input
+              type="radio"
+              name="q2"
+              value="Iron Man"
+            />Intelligence</label
+          >
+        </div>
+        <div class="question">
+          <p>What's your superpower?</p>
+          <label><input type="radio" name="q3" value="Hulk" />Strength</label>
+          <label><input type="radio" name="q3" value="Thor" />Charisma</label>
+          <label
+            ><input
+              type="radio"
+              name="q3"
+              value="Captain America"
+            />Leadership</label
+          >
+        </div>
+        <button type="submit">See the Result</button>
+      </form>
+    </div>
+    <div id="result"></div>
+    <script src="./script/index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+body {
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+  background-color: #141414;
+}
+.quiz-container {
+  max-width: 600px;
+  margin: auto;
+  background: #454040;
+  padding: 20px;
+  border-radius: 8px;
+  color: antiquewhite;
+  cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🚀</text></svg>") 16 0,auto;
+ 
+}
+h1 {
+  color: rgb(239, 138, 5);
+   text-align: center;
+    margin: 50px;
+}
+h2 {
+  color: antiquewhite;
+  margin: 50px;
+  text-align: center;
+}
+h3 {
+  color: antiquewhite;
+  margin: 50px;
+  text-align: center;
+}
+h4 {
+  color: antiquewhite;
+  margin: 50px;
+  text-align: center;
+}
+p {
+color: antiquewhite; 
+}
+.question {
+  margin-bottom: 20px;
+ 
+}
+
+button {
+  padding: 10px 20px;
+  background: #530406;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#result {
+  margin-top: 30px;
+  text-align: center;
+}

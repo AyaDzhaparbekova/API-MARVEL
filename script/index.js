@@ -1,7 +1,42 @@
-console.log('fetching');
-
+const ts = Date.now().toString();
 const publicKey = 'cc6564473569f94ef5db696237760823';
 const privateKey = '7e7cd5bcbf99552fed287688b857daa7ad800045';
+const hash = md5(ts + privateKey + publicKey);
+const limit = 18;
+const maxCharacters = 1500;
+const offset = Math.floor(Math.random() * (maxCharacters - limit));
+
+function fetchAllHeroes() {
+  const url = `https://gateway.marvel.com/v1/public/characters?limit=18&ts=${ts}&apikey=${publicKey}&hash=${hash}`;
+
+  //FETCH #1
+  fetch(url)
+    .then(res => res.json())
+    .then(data => {
+      const heroes = data.data.results;
+      const container = document.getElementById('all-heroes');
+
+      heroes.forEach(hero => {
+        const heroCard = document.createElement('div');
+        heroCard.classList.add('hero-card');
+
+        heroCard.innerHTML = `
+          <h3>${hero.name}</h3>
+          <img src="${hero.thumbnail.path}.${hero.thumbnail.extension}" alt="${
+          hero.name
+        }" width="200">
+          <p>${hero.description || 'No description available'}</p>
+        `;
+
+        container.appendChild(heroCard);
+      });
+    })
+    .catch(err => {
+      console.error('Error fetching heroes:', err);
+      document.getElementById('all-heroes').innerText = 'Error loading heroes.';
+    });
+}
+fetchAllHeroes();
 
 document.getElementById('quizForm').addEventListener('submit', function (e) {
   e.preventDefault();
@@ -25,7 +60,7 @@ document.getElementById('quizForm').addEventListener('submit', function (e) {
   const url = `https://gateway.marvel.com/v1/public/characters?name=${encodeURIComponent(
     mostCommon
   )}&ts=${ts}&apikey=${publicKey}&hash=${hash}`;
-
+  //FETCH #2
   fetch(url)
     .then(res => res.json())
     .then(data => {
@@ -49,3 +84,12 @@ document.getElementById('quizForm').addEventListener('submit', function (e) {
       document.getElementById('result').innerText = 'Error fetching data.';
     });
 });
+
+//Footer
+const today = new Date();
+const thisYear = today.getFullYear();
+const footer = document.querySelector('footer');
+const copyright = document.createElement('p');
+copyright.innerHTML = `&copy; ${thisYear} Designed & Coded by Aya Dzhaparbekova.`;
+footer.appendChild(copyright);
+

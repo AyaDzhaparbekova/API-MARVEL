@@ -200,16 +200,14 @@ p {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 1.5em;
   max-height: 4.5em;
   margin: 0 auto;
-  max-width: 300px; 
+  max-width: 300px;
 }
-
-
-
 
 footer {
   border-radius: 15px;

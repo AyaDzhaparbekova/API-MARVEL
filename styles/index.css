@@ -188,6 +188,27 @@ button {
   margin-top: 30px;
   text-align: center;
 }
+.hero-image {
+  display: block;
+  margin: 0 auto;
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+}
+p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.5em;
+  max-height: 4.5em;
+  margin: 0 auto;
+  max-width: 300px;
+}
+
 footer {
   border-radius: 15px;
   width: 99%;

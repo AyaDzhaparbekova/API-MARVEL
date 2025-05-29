@@ -1,13 +1,15 @@
-const ts = Date.now().toString();
 const publicKey = 'cc6564473569f94ef5db696237760823';
 const privateKey = '7e7cd5bcbf99552fed287688b857daa7ad800045';
-const hash = md5(ts + privateKey + publicKey);
-const limit = 18;
-const maxCharacters = 1500;
-const offset = Math.floor(Math.random() * (maxCharacters - limit));
 
+const maxCharacters = 1500;
+const limit = 18;
 function fetchAllHeroes() {
-  const url = `https://gateway.marvel.com/v1/public/characters?limit=18&ts=${ts}&apikey=${publicKey}&hash=${hash}`;
+  const ts = Date.now().toString();
+  const hash = md5(ts + privateKey + publicKey);
+
+  const offset = Math.floor(Math.random() * (maxCharacters - limit));
+
+  const url = `https://gateway.marvel.com/v1/public/characters?limit=${limit}&offset=${offset}&ts=${ts}&apikey=${publicKey}&hash=${hash}`;
 
   //FETCH #1
   fetch(url)
@@ -69,12 +71,12 @@ document.getElementById('quizForm').addEventListener('submit', function (e) {
 
       if (character) {
         resultDiv.innerHTML = `
-          <h2>${character.name}</h2>
-          <img src="${character.thumbnail.path}.${
+  <h2>${character.name}</h2>
+  <img class="hero-image" src="${character.thumbnail.path}.${
           character.thumbnail.extension
         }" alt="${character.name}">
-          <p>${character.description || 'Description not available'}</p>
-        `;
+  <p>${character.description || 'Description not available'}</p>
+`;
       } else {
         resultDiv.innerHTML = 'Character not found';
       }
@@ -90,6 +92,5 @@ const today = new Date();
 const thisYear = today.getFullYear();
 const footer = document.querySelector('footer');
 const copyright = document.createElement('p');
-copyright.innerHTML = `&copy; ${thisYear} Designed & Coded by Aya Dzhaparbekova.`;
+copyright.innerHTML = `&copy; ${thisYear} Coded by Aya Dzhaparbekova.`;
 footer.appendChild(copyright);
-

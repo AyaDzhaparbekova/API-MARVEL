@@ -196,7 +196,7 @@ button {
   height: auto;
   border-radius: 15px;
 }
-p {
+p label {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
